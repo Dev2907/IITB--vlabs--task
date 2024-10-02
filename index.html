@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chemical Supplies</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./stylesheet.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="./bootstrap/js/bootstrap.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between">
+            <h3>Chemical Supplies</h3>
+            <div class="d-flex toolbar">
+                <button id="add_row">
+                    <img src="./images/add_circle.png" width="20" height="20">
+                </button>
+                <button id="row_move_up">
+                    <img src="./images/arrow_up.png" width="20" height="20">
+                </button>
+                <button id="row_move_down">
+                    <img src="./images/arrow_down.png" width="20" height="20">
+                </button>
+                <button id="row_delete">
+                    <img src="./images/delete.png" width="20" height="20">
+                </button>
+                <button id="table_refresh">
+                    <img src="./images/refresh.png" width="20" height="20">
+                </button>
+                <button id="table_save">
+                    <img src="./images/save.png" width="20" height="20">
+                </button>
+            </div>
+        </div>
+        <table class="table table-sm table-hover table-borderless align-middle chemical_table">
+            <thead>
+                <tr>
+                    <td scope="col">
+                        <img src="./images/check_solid.png" width="20" height="20"/>
+                    
+                    </td>
+                    <td scope="col"></td>
+                    <td scope="col">Chemical Name</td>
+                    <td scope="col">Vendor</td>
+                    <td scope="col">Density</td>
+                    <td scope="col">Viscosity</td>
+                    <td scope="col">Packaging</td>
+                    <td scope="col">Pack Size</td>
+                    <td scope="col">Unit</td>
+                    <td scope="col">Quantity</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="unit text-secondary">g/m³</td>
+                    <td class="unit text-secondary">m²/s</td>
+                    <td colspan="4"></td>
+                </tr>
+            </thead>
+            <tbody id="chemical_table_body">
+            </tbody>
+        </table>
+        <!-- Add icons or action buttons here -->
+    </div>
+
+</body>
+<script src="./script.js"></script>
+
+</html>
+
+</html>

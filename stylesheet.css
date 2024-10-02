@@ -1,0 +1,29 @@
+body{
+    font-family: "Consolas", "Courier New", "monospace";
+}
+.unit{
+    border: 0px;
+}
+.chemical_table td:nth-child(3){
+    border-right: 1px solid var(--bs-secondary);
+    text-align: start;
+}
+.chemical_table thead{
+    border-bottom: 1px solid var(--bs-secondary);
+
+}
+.chemical_table td:nth-child(4){
+    justify-content: center;
+}
+.chemical_table{
+    border: 1px solid var(--bs-secondary);
+}
+.hover>td, .hover>th{
+    background-color: rgba(91, 122, 184, 0.251);
+}
+.toolbar>button{
+    background-color: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
