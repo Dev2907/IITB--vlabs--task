@@ -89,7 +89,10 @@ class chemical_app {
     }
 
     load_table(data = this.data, table_dom = this.table_dom) {
+        let i=1
         data.forEach(item => {
+            item.id = i;
+            i++;
             let row = this._row(item);
             table_dom.appendChild(row);
         });
@@ -194,6 +197,7 @@ class chemical_app {
     }
 
     delete() {
+        if(this.status == 1)return;
         this.selected.forEach(row => {
             const index = row.getAttribute('index');
             this.table_dom.removeChild(row);
@@ -276,6 +280,27 @@ class chemical_app {
         this.table_dom.appendChild(this._row(item));
         this.table_dom.removeChild(row);
         this.status = 0;
+    }
+
+    sort_by_key(array, key) {
+        return array.sort((a, b) => {
+            if (a[key] < b[key]) {
+                return -1;
+            }
+            if (a[key] > b[key]) {
+                return 1;
+            }
+            return 0;
+        });
+    }
+
+    sort_rows(key){
+        const sorted_array = this.sort_by_key(this.data, key);
+        this.status = 0
+        this.selected.clear()
+        this.table_dom.innerHTML = "";
+        this.load_table(sorted_array);
+        this.status = 1
     }
 }
 
@@ -468,6 +493,33 @@ window.onload = () => {
     })
     document.querySelector('#add_row').addEventListener('click', () => {
         app.add_form()
+    })
+    document.querySelector('#chemical_name').addEventListener('click', ()=>{
+        app.sort_rows('chemicalName')
+    })
+    document.querySelector('#index').addEventListener('click', ()=>{
+        app.sort_rows('id')
+    })
+    document.querySelector('#vendor').addEventListener('click', ()=>{
+        app.sort_rows('vendor')
+    })
+    document.querySelector('#density').addEventListener('click', ()=>{
+        app.sort_rows('density')
+    })
+    document.querySelector('#viscosity').addEventListener('click', ()=>{
+        app.sort_rows('viscosity')
+    })
+    document.querySelector('#packaging').addEventListener('click', ()=>{
+        app.sort_rows('packaging')
+    })
+    document.querySelector('#packsize').addEventListener('click', ()=>{
+        app.sort_rows('packSize')
+    })
+    document.querySelector('#unit').addEventListener('click', ()=>{
+        app.sort_rows('unit')
+    })
+    document.querySelector('#quantity').addEventListener('click', ()=>{
+        app.sort_rows('quantity')
     })
 }
 
